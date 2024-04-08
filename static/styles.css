@@ -1,0 +1,127 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    justify-content: center; /* Center children vertically */
+}
+
+h1 {
+    color: #333;
+}
+.rank-buttons {
+    width: 400px; /* Set a fixed width */
+    height: 420 px; /* Set a fixed height */
+    margin: 100px auto; /* Center horizontally with auto margins */
+    background-color: #fff; /* Set background color to white */
+    padding: 20px; /* Add padding to create space between content and border */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    overflow-y: auto; /* Add vertical scroll if content exceeds height */
+    border-radius: 10px;
+}
+
+
+.rank-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjusted to distribute space evenly */
+    font-size: 20px; /* Increase font size of the text */
+    border-bottom: 1px solid #ccc; /* Add a solid line at the bottom of each row */
+    padding-bottom: 10px; /* Add padding to separate the line from the text */
+    margin-bottom: 10px; /* Add margin to space out the rows */
+    position: relative; /* Required for absolute positioning of the pseudo-element */
+     /*background-image: url('./CSBanner.jpeg'); Set background image */
+    background-size: cover; /* Scale the background image to cover the entire element */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center; /* Center the background image */
+    border-radius: 10px;
+}
+
+.rank-row::after {
+    content: ""; /* Required for pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely */
+    top: 0; /* Position at the top of the row */
+    right: 0; /* Position at the right of the row */
+    bottom: 0; /* Position at the bottom of the row */
+    left: 0; /* Position at the left of the row */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent grey color */
+    border-radius: 10px;
+}
+
+
+.rank-row:not(:last-child) {
+    border-bottom: 1px solid #ccc; /* Add a solid line at the bottom of each row except the last one */
+    padding-bottom: 10px; /* Add padding to separate the line from the text */
+    margin-bottom: 10px; /* Add margin to space out the rows */
+}
+
+
+.key {
+    width: 200px;
+    /* margin-right: 100px; */
+    color: #fff;
+    font-family: Montserrat, Arial, sans-serif; /* Montserrat for all text content */
+    font-weight: 700; /* Bold text */
+}
+
+.value {
+    width: 2800px; /* Set a fixed width for the value section */
+    color: #fff;
+    font-family: Montserrat, Arial, sans-serif; /* Montserrat for all text content */
+    font-weight: 700; /* Bold text */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 150px;
+    height: 40px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.option-image {
+    width: 100px; /* Adjust image width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Adjust margin between image and option text */
+}
+
+.option-text {
+    font-size: 50px; /* Increase font size of the text */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-family: Montserrat, Arial, sans-serif; /* Montserrat for all text content */
+    font-weight: 700; /* Bold text */
+
+
+}
+
+.option-row2 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; 
+    margin-top:-100px
+}

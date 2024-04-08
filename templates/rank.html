@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Ranker</title>
+    <!-- Add this inside the <head> section of your HTML -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rank the options:</h1>
+
+        <div class="rank-buttons">
+            {% for key, value in rankings2.items() %}
+            <div class="rank-row" id="rank-{{ key }}" style="background-image: url({{url_for('static', filename=rankings3[key]) }});border-radius: 10px;">
+
+                <p class="key">{{ key }}</p>
+                <p class="value">{{ value }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% if option != "Ranking complete" %}
+        <div class="option-row2">
+            <p class="option-text">
+                <img src="{{ url_for('static', filename=option['image']) }}" class="option-image">{{ option['name'] }}
+            </p>
+        </div>
+        </p>
+        <form action="/rank" method="post">
+            <input type="hidden" name="ranked_option" value="{{ option }}">
+            {% for option in remaining_ranks %}
+            {% if clicked_rank != loop.index %}
+            <button type="submit" name="rank" value="{{ option }}">{{ option }}</button>
+            {% endif %}
+            {% endfor %}
+        </form>
+        {% else %}
+        <h2>Ranking complete</h2>
+        {% endif %}
+        <form action="/reset" method="post">
+            <button type="submit">Reset</button>
+        </form>
+    </div>
+</body>
+
+</html>
