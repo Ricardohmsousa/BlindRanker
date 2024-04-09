@@ -9,14 +9,18 @@
 </head>
 
 <body>
-    <a href="/blindrank">
-        <div class="card">
-            <img src="./static/game-console.png" alt="Image">
-            <div class="card-content">
-                <h2>Gaming</h2>
+    <div class="card-container">
+        {% for category in categories %}
+        <a href="/blindrank?categories={{ category['name'] }}">
+            <div class="card">
+                <img src="{{ category['image'] }}" alt="Image">
+                <div class="card-content">
+                    <h2>{{ category['name'] }}</h2>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+        {% endfor %}
+    </div>
 </body>
 
 </html>

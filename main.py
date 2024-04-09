@@ -1,7 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for
 import ast
+from utils import *
 app = Flask(__name__)
 
+# Sample list of categories
+categories = [
+    {'name': 'Gaming', 'image': './static/game-console.png'},
+    {'name': 'Technology', 'image': './static/technology.png'},
+    {'name': 'Sports', 'image': './static/sports.png'},
+    {'name': 'Music', 'image': './static/music.png'},
+    {'name': 'Gaming', 'image': './static/game-console.png'},
+    {'name': 'Technology', 'image': './static/technology.png'},
+    {'name': 'Sports', 'image': './static/sports.png'},
+    {'name': 'Music', 'image': './static/music.png'},
+    # Add more categories as needed
+]
 options = [
     {'name': 'League Of Legends', 'image': 'leagueOfLegends.png','banner':'LoLbanner.png'},
     {'name': 'Valorant', 'image': 'valorant.png','banner':'ValorantBanner.png'},
@@ -20,9 +33,14 @@ rankings3 = {1: "white.jpg", 2: "white.jpg", 3: "white.jpg", 4: "white.jpg", 5: 
 def previous():
     reset()
     # Render the previous page template
-    return render_template('main.html')
+    return render_template('main.html',categories=categories)
 @app.route('/blindrank')
 def index():
+    category = request.args.get('categories')  # Get categories from the URL parameters
+    print(category)
+    global options
+
+    options= getOptions(category)	
     remaining_options = [option for option in options if option['name'] not in [r[1] for r in rankings]]
     if remaining_options:
         next_option = remaining_options[0]
