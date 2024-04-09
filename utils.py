@@ -1,3 +1,4 @@
+import random
 def getOptions(category):
     options=[]
     if category=="Sports":
@@ -6,8 +7,14 @@ def getOptions(category):
             {'name': 'BasketBall', 'image': 'valorant.png','banner':'ValorantBanner.png'},
             {'name': 'Rugby', 'image': 'CounterStrike.png','banner':'CSGOBanner.png'},
             {'name': 'Golf', 'image': 'RocketLeague.png','banner':'RocketLeagueHeader.png'},
-            {'name': 'Tenis', 'image': 'Fortnite.png','banner':'FortniteBanner.png'}
+            {'name': 'Baseball', 'image': 'leagueOfLegends.png','banner':'LoLbanner.png'},
+            {'name': 'Hockey', 'image': 'valorant.png','banner':'ValorantBanner.png'},
+            {'name': 'Tennis', 'image': 'CounterStrike.png','banner':'CSGOBanner.png'},
+            {'name': 'VolleyBall', 'image': 'RocketLeague.png','banner':'RocketLeagueHeader.png'},
+            {'name': 'Swimming', 'image': 'valorant.png','banner':'ValorantBanner.png'},
         ]
+        options = random.sample(options, 5)
+        random.shuffle(options)
     else:
         options = [
             {'name': 'League Of Legends', 'image': 'leagueOfLegends.png','banner':'LoLbanner.png'},
