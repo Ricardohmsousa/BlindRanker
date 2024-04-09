@@ -1,0 +1,87 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    width: 200px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    overflow: hidden;
+    /* To contain image overflow */
+    transition: filter 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Greyed-out effect on hover */
+.card:hover {
+    /* filter: grayscale(100%); */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Reset grayscale effect on anchor hover */
+.card:hover a {
+    filter: grayscale(0%);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Remove underline from anchor */
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+.container {
+    text-align: center;
+    justify-content: center;
+    /* Center children vertically */
+}
+
+h1 {
+    color: #333;
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 150px;
+    height: 40px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

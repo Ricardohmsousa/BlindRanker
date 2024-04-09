@@ -17,6 +17,11 @@ rankings3 = {1: "white.jpg", 2: "white.jpg", 3: "white.jpg", 4: "white.jpg", 5: 
 
 
 @app.route('/')
+def previous():
+    reset()
+    # Render the previous page template
+    return render_template('main.html')
+@app.route('/blindrank')
 def index():
     remaining_options = [option for option in options if option['name'] not in [r[1] for r in rankings]]
     if remaining_options:
