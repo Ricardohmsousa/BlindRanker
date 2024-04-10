@@ -32,6 +32,7 @@
         </p>
         <form action="/rank" method="post">
             <input type="hidden" name="ranked_option" value="{{ option }}">
+            <input type="hidden" name="tab_id" value="{{ tab_id }}">
             {% for option in remaining_ranks %}
             {% if clicked_rank != loop.index %}
             <button type="submit" name="rank" value="{{ option }}">{{ option }}</button>
@@ -42,9 +43,12 @@
         <h2>Ranking complete</h2>
         {% endif %}
         <form action="/reset" method="post">
+            <input type="hidden" name="tab_id" value="{{ tab_id }}">
+            <input type="hidden" name="category" value="{{ category }}">
             <button type="submit">Reset</button>
         </form>
         <form action="/" method="get">
+            <input type="hidden" name="tab_id" value="{{ tab_id }}">
             <button type="submit">Home</button>
         </form>
     </div>
