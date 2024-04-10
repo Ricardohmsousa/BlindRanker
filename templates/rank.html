@@ -14,6 +14,18 @@
     <div class="container">
         <h1>Rank the options:</h1>
 
+        <div class="dropdown">
+            <button class="dropbtn">Number of Ranks</button>
+            <div class="dropdown-content">
+                <a href="/set_number_of_ranks?count=5&categories={{ category}}&tab_id={{ tab_id }}">5</a>
+                <a href="/set_number_of_ranks?count=6&categories={{ category}}&tab_id={{ tab_id }}">6</a>
+                <a href="/set_number_of_ranks?count=7&categories={{ category}}&tab_id={{ tab_id }}">7</a>
+                <a href="/set_number_of_ranks?count=8&categories={{ category}}&tab_id={{ tab_id }}">8</a>
+                <a href="/set_number_of_ranks?count=9&categories={{ category}}&tab_id={{ tab_id }}">9</a>
+                <a href="/set_number_of_ranks?count=10&categories={{ category}}&tab_id={{ tab_id }}">10</a>
+            </div>
+        </div>
+
         <div class="rank-buttons">
             {% for key, value in rankings2.items() %}
             <div class="rank-row" id="rank-{{ key }}" style="background-image: url({{url_for('static', filename=rankings3[key]) }});border-radius: 10px;">
@@ -33,6 +45,7 @@
         <form action="/rank" method="post">
             <input type="hidden" name="ranked_option" value="{{ option }}">
             <input type="hidden" name="tab_id" value="{{ tab_id }}">
+            <input type="hidden" name="category" value="{{ category }}">
             {% for option in remaining_ranks %}
             {% if clicked_rank != loop.index %}
             <button type="submit" name="rank" value="{{ option }}">{{ option }}</button>
@@ -42,15 +55,18 @@
         {% else %}
         <h2>Ranking complete</h2>
         {% endif %}
-        <form action="/reset" method="post">
-            <input type="hidden" name="tab_id" value="{{ tab_id }}">
-            <input type="hidden" name="category" value="{{ category }}">
-            <button type="submit">Reset</button>
-        </form>
-        <form action="/" method="get">
-            <input type="hidden" name="tab_id" value="{{ tab_id }}">
-            <button type="submit">Home</button>
-        </form>
+        <div class="button-row">
+            <form action="/reset" method="post">
+                <input type="hidden" name="tab_id" value="{{ tab_id }}">
+                <input type="hidden" name="category" value="{{ category }}">
+                <button type="submit">Reset</button>
+            </form>
+            <form action="/" method="get">
+                <input type="hidden" name="tab_id" value="{{ tab_id }}">
+                <button type="submit">Home</button>
+            </form>
+        </div>
+
     </div>
 </body>
 

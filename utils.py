@@ -1,5 +1,5 @@
 import random
-def getOptions(category):
+def getOptions(category,number):
     options=[]
     if category=="Sports":
         options = [
@@ -12,8 +12,9 @@ def getOptions(category):
             {'name': 'Tennis', 'image': 'CounterStrike.png','banner':'CSGOBanner.png'},
             {'name': 'VolleyBall', 'image': 'RocketLeague.png','banner':'RocketLeagueHeader.png'},
             {'name': 'Swimming', 'image': 'valorant.png','banner':'ValorantBanner.png'},
+            {'name': 'Soccer', 'image': 'CounterStrike.png','banner':'CSGOBanner.png'},
         ]
-        options = random.sample(options, 5)
+        options = random.sample(options, number)
         random.shuffle(options)
     else:
         options = [
