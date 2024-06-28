@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -11,7 +11,11 @@ body {
 
 .container {
     text-align: center;
-    justify-content: center; /* Center children vertically */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack children vertically */
+    margin-top: 100px;
 }
 
 h1 {
@@ -21,6 +25,7 @@ h1 {
     width: 400px; /* Set a fixed width */
     height: 420 px; /* Set a fixed height */
     margin: 100px auto; /* Center horizontally with auto margins */
+    margin-top: 10px;
     background-color: #fff; /* Set background color to white */
     padding: 20px; /* Add padding to create space between content and border */
     border-radius: 10px; /* Add border radius for rounded corners */
